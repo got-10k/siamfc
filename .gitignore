@@ -1,0 +1,10 @@
+.*
+*.pyc
+data
+data/
+__pycache__/
+results*/
+reports*/
+cache*/
+pretrained*/
+!.gitignore
