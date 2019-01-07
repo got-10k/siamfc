@@ -6,7 +6,7 @@ import torch
 from torch.utils.data import DataLoader
 
 from got10k.datasets import ImageNetVID, GOT10k
-from data_utils import Pairwise
+from pairwise import Pairwise
 from siamfc import TrackerSiamFC
 
 
