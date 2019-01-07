@@ -63,6 +63,12 @@ class Pairwise(Dataset):
     def __getitem__(self, index):
         index = self.indices[index % len(self.seq_dataset)]
         img_files, anno = self.seq_dataset[index]
+
+        # remove too small objects
+        valid = anno[:, 2:].prod(axis=1) >= 10
+        img_files = np.array(img_files)[valid]
+        anno = anno[valid, :]
+
         rand_z, rand_x = self._sample_pair(len(img_files))
 
         exemplar_image = Image.open(img_files[rand_z])
